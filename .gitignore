@@ -1,0 +1,29 @@
+# environment
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+
+# local data and outputs (dataset is added after clone)
+data/
+artifacts/
+*.tif
+*.tiff
+*.npy
+*.npz
+*.pt
+*.pth
+*.ckpt
+
+# notebooks checkpoint junk
+.ipynb_checkpoints/
+
+# editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

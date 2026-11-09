@@ -1,0 +1,46 @@
+# Baseline B1: latest frame only, no temporal module, no SGR, no boundary head.
+model:
+  name: unet_frame
+  input_channels: 8
+  sequence_length: 3
+  patch_size: 256
+
+encoder:
+  channels: [32, 64, 128, 192, 256]
+  norm_groups: 8
+
+temporal:
+  enabled: false
+  levels: [E2, E3, E4, E5]
+  hidden_channels: 64
+  kernel_size: 3
+
+decoder:
+  channels: [192, 128, 64, 32]
+  align_corners: false
+  attention_intermediate_min: 16
+
+sgr:
+  enabled: false
+  node_input_dim: 35
+  node_feature_dim: 64
+  edge_feature_dim: 2
+  slic:
+    n_segments: 1024
+    compactness: 10.0
+    sigma: 1.0
+    start_label: 0
+    enforce_connectivity: true
+    convert2lab: false
+  gatv2:
+    layers: 2
+    first_heads: 4
+    first_head_dim: 16
+    second_heads: 1
+    second_head_dim: 64
+    dropout: 0.1
+
+heads:
+  ba_mask: true
+  boundary: false
+  boundary_hidden_channels: 16

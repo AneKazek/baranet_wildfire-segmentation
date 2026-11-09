@@ -1,0 +1,22 @@
+training:
+  epochs: 100
+  batch_size: 4
+  gradient_accumulation_steps: 2
+  optimizer: adamw
+  learning_rate: 0.0003
+  weight_decay: 0.0001
+  warmup_epochs: 5
+  scheduler: cosine
+  gradient_clip_norm: 1.0
+  mixed_precision: true
+  early_stopping_patience: 15
+  seeds: [17, 42, 2026]
+
+loss:
+  focal_tversky: 0.50
+  dice: 0.35
+  boundary: 0.15
+  tversky_alpha: 0.30
+  tversky_beta: 0.70
+  tversky_gamma: 0.75
+  epsilon: 1.0e-7
