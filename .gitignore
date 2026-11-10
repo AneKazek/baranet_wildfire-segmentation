@@ -27,3 +27,6 @@ artifacts/
 .idea/
 .DS_Store
 Thumbs.db
+
+# generated notebook outputs
+notebooks/*_output.ipynb
