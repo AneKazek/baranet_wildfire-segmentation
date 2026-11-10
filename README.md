@@ -65,6 +65,13 @@ result = trainer.fit()   # best/latest checkpoints, CSV logs, config, threshold
 
 Load it back with `baranet.load_checkpoint(path, model)`.
 
+## Colab
+
+[`notebooks/colab_ts_satfire.ipynb`](notebooks/colab_ts_satfire.ipynb) runs the whole pipeline on
+real TS-SatFire data from Kaggle (anonymous download, no credentials): band audit, 3-day windows
+with cumulative thermal preprocessing, patch sampling, a 2-epoch training run, evaluation and
+full-scene inference. Set `GITHUB_TOKEN` in the first cell if this repository is private.
+
 ## Batch contract
 
 | key | shape | required |

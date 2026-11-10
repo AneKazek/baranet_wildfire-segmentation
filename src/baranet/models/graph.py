@@ -173,7 +173,13 @@ class GATv2Layer(nn.Module):
         for head in range(heads):
             out[:, head * head_dim : (head + 1) * head_dim] = torch.zeros(
                 nodes, head_dim, dtype=value.dtype, device=value.device
-            ).index_add_(0, dst, alpha[:, head].unsqueeze(1) * value[:, head])
+            ).index_add_(
+                0,
+                dst,
+                (
+                    alpha[:, head].unsqueeze(1) * value[:, head]
+                ).to(dtype=value.dtype)
+            )
         return self.dropout(F.gelu(self.norm(self.res(x) + out)))
 
 
